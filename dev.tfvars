@@ -1,0 +1,25 @@
+environments          = "devolopment"
+s3BucketName          = "s3usw2appgredpsidevtfstate"
+eksClusterName        = "eks-RISE-SANDBOX"
+clusterRoleName       = "EKSClusterRole"
+clusterNodeRoleName   = "EKSWorkerNodeRole"
+endpointPrivateAccess = true
+endpointPublicAccess  = true
+subnetIds = ["subnet-01c83fccd1a8250cc","subnet-063aa9eecbffda074"]
+tags = {
+  environment = "Development"
+  source      = "Terraform"
+}
+nodeGroupName        = "nodegrp1"
+nodeDesiredSize      = 2
+nodeMaxSize          = 3
+nodeMinSize          = 1
+vpcId                = "vpc-0a78413f77b2590b8"
+securityGroupName    = "clusterSecurityGroup"
+capacityType         = "SPOT"
+autoScalingGroupName = "eks-spot-instance-autoscaling"
+amiId                = "ami-03e7c8bcb768c2ada"
+instanceType         = "t3.medium"
+instanceKey          = "EKS-RISE-SANDBOX"
+launchTemplateName   = "eks-spotinstance"
+eksLogTypes          = ["api", "audit", "authenticator", "controllerManager", "scheduler"]

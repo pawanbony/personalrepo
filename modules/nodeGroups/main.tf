@@ -1,9 +1,9 @@
+/* data "aws_iam_role" "serviceLinkedRole" {
+  name = "EKSClusterAuto"
+} */
+
 data "aws_iam_role" "serviceLinkedRole" {
   name = "AWSServiceRoleForAutoScaling"
-}
-
-/*data "aws_iam_role" "serviceLinkedRole" {
-  name = "AWSServiceRoleForAmazonEKSNodegroup"
 }
 resource "aws_iam_role" "example" {
   name = "eks-node-group-example"
@@ -33,13 +33,18 @@ resource "aws_iam_role_policy_attachment" "example-AmazonEKS_CNI_Policy" {
 resource "aws_iam_role_policy_attachment" "example-AmazonEC2ContainerRegistryReadOnly" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
   role       = aws_iam_role.example.name
-}*/
+}
+resource "aws_iam_role_policy_attachment" "AdminAccess" {
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
+  role       = aws_iam_role.example.name
+}
 resource "aws_eks_node_group" "nodegrp1" {
   cluster_name    = var.eksClusterName
   node_group_name = var.nodeGroupName
-  node_role_arn   = var.nodeRoleArn
+  node_role_arn   = aws_iam_role.example.arn
   subnet_ids      = var.subnetIds
-  lifecycle {
+
+   lifecycle {
     ignore_changes = [
       scaling_config.0.desired_size,
     ]
@@ -54,45 +59,45 @@ resource "aws_eks_node_group" "nodegrp1" {
     id      = aws_launch_template.nodeLaunchTemplate.id
     version = aws_launch_template.nodeLaunchTemplate.latest_version
   }
-    /*(depends_on = [
+  depends_on = [
     aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy,
     aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly,
-  ]*/
+  ]
 }
 
 locals {
   demo-node-userdata = <<USERDATA
 #!/bin/bash
 set -o xtrace
-/etc/eks/bootstrap.sh --apiserver-endpoint '${var.endpoint}' --b64-cluster-ca '${var.certificate_authority}' '${var.eksClusterName}'
+sudo mkdir -p /etc/eks/
+sudo cd /etc/eks/
+sudo wget https://github.com/awslabs/amazon-eks-ami/blob/master/files/bootstrap.sh
+/etc/eks/bootstrap.sh --b64-cluster-ca '${var.certificate_authority}' --apiserver-endpoint '${var.endpoint}' '${var.eksClusterName}'
 USERDATA
-
 }
 # aws_launch_template.nodeLaunchTemplate:
 resource "aws_launch_template" "nodeLaunchTemplate" {
   default_version         = 1
   disable_api_termination = false
   image_id                = var.amiId
-  instance_type           = var.instanceType
+  tags                    = var.tags
   key_name                = var.instanceKey
   name                    = var.launchTemplateName
-  tags                    = var.tags
   user_data               = base64encode(local.demo-node-userdata)
   vpc_security_group_ids  = [var.securityGroupId]
 
   block_device_mappings {
-    device_name = "/dev/xvda"
+    device_name = "/dev/sda1"
 
     ebs {
       delete_on_termination = "true"
       iops                  = 0
-      volume_size           = 20
+      volume_size           = 40
       volume_type           = "gp2"
     }
   }
-
-  metadata_options {
+    metadata_options {
     http_put_response_hop_limit = 2
     http_endpoint               = "enabled"
   }
@@ -101,21 +106,21 @@ resource "aws_launch_template" "nodeLaunchTemplate" {
 # aws_autoscaling_group.web:
 resource "aws_autoscaling_group" "eksAutoScaling" {
   default_cooldown          = 300
-  desired_capacity          = 2
+  desired_capacity          = 1
   enabled_metrics           = []
   health_check_grace_period = 15
   health_check_type         = "EC2"
   load_balancers            = []
   max_instance_lifetime     = 0
-  max_size                  = 5
+  max_size                  = 3
   metrics_granularity       = "1Minute"
-  min_size                  = 2
+  min_size                  = 1
   name                      = var.autoScalingGroupName
   protect_from_scale_in     = false
   service_linked_role_arn   = data.aws_iam_role.serviceLinkedRole.arn
   suspended_processes       = []
   target_group_arns         = []
-  vpc_zone_identifier       = ["subnet-01c83fccd1a8250cc","subnet-063aa9eecbffda074"]
+  vpc_zone_identifier       = ["subnet-0f1379c2b55c00806","subnet-0a967c13de5449c04","subnet-079f767877cbe68c4"]
   termination_policies = [
     "AllocationStrategy",
     "OldestLaunchTemplate",
@@ -137,7 +142,6 @@ resource "aws_autoscaling_group" "eksAutoScaling" {
         launch_template_name = aws_launch_template.nodeLaunchTemplate.name
         version              = "1"
       }
-
       override {
         instance_type = "t3.medium"
       }
@@ -169,7 +173,7 @@ resource "aws_autoscaling_group" "eksAutoScaling" {
     value               = "owned"
   }
   tag {
-    key = "kubernetes.io/devCluster/${var.eksClusterName}"
+    key = "kubernetes.io/Cluster/${var.eksClusterName}-${terraform.workspace}"
     value = "owned"
     propagate_at_launch = true
     }

@@ -3,7 +3,7 @@ resource "aws_eks_cluster" "devCluster" {
   name                      = var.eksClusterName
   role_arn                  = var.eksRoleArn
   tags                      = var.tags
-  version                   = "1.18"
+  version                   = "1.19"
 
   timeouts {}
 
@@ -17,4 +17,3 @@ resource "aws_eks_cluster" "devCluster" {
     subnet_ids         = var.subnetIds
   }
 }
-

@@ -43,6 +43,5 @@ module "nodeGroup1" {
   instanceKey           = var.instanceKey
   launchTemplateName    = var.launchTemplateName
   tags                  = var.tags
-  securityGroupId        = module.securityGroup.securityGroupId
+  securityGroupId       = module.securityGroup.securityGroupId
 }
-

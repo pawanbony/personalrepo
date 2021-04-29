@@ -1,0 +1,1034 @@
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1619671376352)
++++ b/.idea/.gitignore	(date 1619671376352)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
++# Editor-based HTTP Client requests
++/httpRequests/
+Index: .terraform.lock.hcl
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.terraform.lock.hcl b/.terraform.lock.hcl
+new file mode 100644
+--- /dev/null	(date 1619304055095)
++++ b/.terraform.lock.hcl	(date 1619304055095)
+@@ -0,0 +1,39 @@
++# This file is maintained automatically by "terraform init".
++# Manual edits may be lost in future updates.
++
++provider "registry.terraform.io/hashicorp/aws" {
++  version     = "3.31.0"
++  constraints = "~> 3.31.0"
++  hashes = [
++    "h1:Wou3ZnO10ZvN+n1iwyuaxn3zyGMFj9KYL+9IFb0gGkw=",
++    "zh:07f5b2f4cfaa25e26a4062ac675e3e5aaf65bb21b94b8fd7f30d576398e7410f",
++    "zh:08a2154ad29ae130ea9e46948b7b332ec4b45321b4852b45ba60adcfd049f8d6",
++    "zh:35ed643c2b999021ad56b49f7d9d3a77c98d152477fe54b5c8a68f696bb1a0b7",
++    "zh:3a8dc51b4be1c04130fd76cda4280019020b276336d307e7074ad52f35d4fdda",
++    "zh:3c910c4f25e3ffd6d84f051c32161f03d1843753cd545e769757d7b42d654003",
++    "zh:5d23f316f89937cbda36207271bbe150f633298f96d4644fd02063fc6bf0c28f",
++    "zh:61fedb2915c5188c6550677a10acb955f32834bbe99ba0cafb2a118be282827b",
++    "zh:65076a6899c0781ce95064d47d587ad07f80becd1510e4c475e4554131caec09",
++    "zh:acca833c2d9985e46298323222285b370ea7cf5299b131dbdfc7c3e66fa32401",
++    "zh:c212cf8ba7fdf64e75accf7e745f76d2349b00553ebd928cc6cafbfda99d97b7",
++    "zh:cd3f5e89ac5f5cf3f8fed3aca4cc50261d537b60a3490feaddf9ba2f06e5e7aa",
++  ]
++}
++
++provider "registry.terraform.io/hashicorp/kubernetes" {
++  version = "2.1.0"
++  hashes = [
++    "h1:L/3XfqLQ4bS1PjH/FksJPm+MYIOxCwn97ozbfSwg/VQ=",
++    "zh:22e2bcef08fb7f97ed503a27e3725d9d14fdd09fe3aa144fae8a7f78ed27856a",
++    "zh:2380cc2a91239b80ea380af8a7fcdcc7396f5213a71a251a5505c962ac6cb9c2",
++    "zh:496ea2818d5480590ada763672be051f4e76dc12c6a61fde2faa0c909e174eb7",
++    "zh:4e5b6c230d9a8da8a0f12e5db198f158f2c26432ad8e1c6ac22770ce7ec39118",
++    "zh:55ad614beffda4cdc918ad87dca09bb7b961f12183c0923230301f73e23e9665",
++    "zh:6849c52899091fa2f6714d8e5180a4affffc4b2ad03dc2250043d4b32049e16e",
++    "zh:7a6f0d9da5172b3770af98d59263e142313a8b2c4048271893c6003493ad1c89",
++    "zh:7c97fb24e60c41fa16f6305620d18ae51545c329f46f92988493a4c51a4e43e5",
++    "zh:a08111c4898544c40c62437cc28798d1f4d7298f61ddaf3f48dddec042d3519f",
++    "zh:be7493bff6b9f95fe203c295bfc5933111e7c8a5f3bd9e9ae143a0d699d516f8",
++    "zh:e4c94adc65b5ad5551893f58c19e1c766f212f16220087ca3e940a89449ac285",
++  ]
++}
+Index: terraform.tfstate.backup
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/terraform.tfstate.backup b/terraform.tfstate.backup
+new file mode 100644
+--- /dev/null	(date 1619310294376)
++++ b/terraform.tfstate.backup	(date 1619310294376)
+@@ -0,0 +1,570 @@
++{
++  "version": 4,
++  "terraform_version": "0.15.0",
++  "serial": 7,
++  "lineage": "cd182aa2-5f86-faa4-6aae-68a3674e65a6",
++  "outputs": {
++    "eks_arn": {
++      "value": "arn:aws:eks:us-west-2:010332150590:cluster/eks-RISE-SANDBOX",
++      "type": "string"
++    },
++    "eks_status": {
++      "value": "ACTIVE",
++      "type": "string"
++    }
++  },
++  "resources": [
++    {
++      "mode": "data",
++      "type": "aws_iam_role",
++      "name": "eksNodeRole",
++      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
++      "instances": [
++        {
++          "schema_version": 0,
++          "attributes": {
++            "arn": "arn:aws:iam::010332150590:role/EKSWorkerNodeRole",
++            "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ec2.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
++            "create_date": "2020-06-17T06:26:24Z",
++            "description": "Allows access to other AWS service resources that are required to operate clusters managed by EKS.",
++            "id": "EKSWorkerNodeRole",
++            "max_session_duration": 3600,
++            "name": "EKSWorkerNodeRole",
++            "path": "/",
++            "permissions_boundary": "",
++            "tags": {},
++            "unique_id": "AROAQEZ6YDM7IPE7NGMHC"
++          },
++          "sensitive_attributes": []
++        }
++      ]
++    },
++    {
++      "mode": "data",
++      "type": "aws_iam_role",
++      "name": "eksRole",
++      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
++      "instances": [
++        {
++          "schema_version": 0,
++          "attributes": {
++            "arn": "arn:aws:iam::010332150590:role/EKSClusterRole",
++            "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"eks.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
++            "create_date": "2020-06-17T05:06:58Z",
++            "description": "Allows access to other AWS service resources that are required to operate clusters managed by EKS.",
++            "id": "EKSClusterRole",
++            "max_session_duration": 3600,
++            "name": "EKSClusterRole",
++            "path": "/",
++            "permissions_boundary": "",
++            "tags": {},
++            "unique_id": "AROAQEZ6YDM7CWIQQA6OE"
++          },
++          "sensitive_attributes": []
++        }
++      ]
++    },
++    {
++      "module": "module.eksCluster",
++      "mode": "data",
++      "type": "aws_eks_cluster_auth",
++      "name": "cluster_auth",
++      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
++      "instances": [
++        {
++          "schema_version": 0,
++          "attributes": {
++            "id": "eks-RISE-SANDBOX",
++            "name": "eks-RISE-SANDBOX",
++            "token": "k8s-aws-v1.aHR0cHM6Ly9zdHMuYW1hem9uYXdzLmNvbS8_QWN0aW9uPUdldENhbGxlcklkZW50aXR5JlZlcnNpb249MjAxMS0wNi0xNSZYLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFTSUFRRVo2WURNN05ONDVCTDVSJTJGMjAyMTA0MjQlMkZ1cy1lYXN0LTElMkZzdHMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDIxMDQyNFQyMjU3MDBaJlgtQW16LUV4cGlyZXM9MCZYLUFtei1TZWN1cml0eS1Ub2tlbj1Gd29HWlhJdllYZHpFS0QlMkYlMkYlMkYlMkYlMkYlMkYlMkYlMkYlMkYlMkZ3RWFERXlLOEM4OEhFTXB6OURsSnlLckFvT3NsdFk0JTJCMFFqd0ZCeGNJV1glMkJJQlVLcUdBNEd0R3pQd0htclF0eWo2Szl1NGtWQXFkcEN5bU5MNm52SnByeVhJQlVXSFBsYU8zdmNkYnU4d0hPZm50bklLT20xQ3o3eWc3WnklMkJpMkJSbTR3TzJqZzVVbFFrTXlPY3VYUlpoSkIxJTJGeWpJZHRaRGpvanVoR2NVMlBjbG1qbElKME1SNXV5ZDA0U1RsS1ZXN0VOM1R5MW1ZTnZlSnZNT3NkWkNmYW02RlFHY1FJZDliQWpUM2Nmak8wb3Qwa0tMTnZkYW5rVXJ5Z1REQ3lDNE5xJTJGYyUyRjAlMkZSMDBxMU0lMkJuVVdtRTZQclc1Q3BnbDFVa0Q4aTkwYTl0b1ZmVjFaUVprdzJGM0JkaHU1TDdpVUhmZnlWbnBYQTRrWVRKbWlQbWYwJTJGSXJhJTJCZmdiVms4cFhkRDEyWnlIVVEzcFh0MndxJTJCNk9MbU04TE5GTmYyVTN4WGl6OFk3bUdzcEdIeCUyQnRLdDIlMkI2aTJrbWpGamFabHpyVlQlMkZEU2JiS051c2tvUUdNaW9nTWUzblBteGZ2d2JDR1RkVXFrRWJXVkdhUU84ZzRncyUyQjFOSEJZa21pN2FKYWpGSyUyRjZSelZQU0ElM0QmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JTNCeC1rOHMtYXdzLWlkJlgtQW16LVNpZ25hdHVyZT1lOTAwZmRlMDk2NzMxMTZjYmU1NjZiNmRhMWI0YWUxZmFkMjM2NTdhZjNmMGNjYWIyYzIyZmFiZDAxOTQwNGU5"
++          },
++          "sensitive_attributes": []
++        }
++      ]
++    },
++    {
++      "module": "module.eksCluster",
++      "mode": "managed",
++      "type": "aws_eks_cluster",
++      "name": "devCluster",
++      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
++      "instances": [
++        {
++          "schema_version": 0,
++          "attributes": {
++            "arn": "arn:aws:eks:us-west-2:010332150590:cluster/eks-RISE-SANDBOX",
++            "certificate_authority": [
++              {
++                "data": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUN5RENDQWJDZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1EUXlOREl6TURNME5sb1hEVE14TURReU1qSXpNRE0wTmxvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBT0t2Cm5oRmZCeTNOVUx0R1U0Ky9FTUZLMFExVGN5YWk3NlluYkl3ZnVBZURTZ0N5ck9iMDh2ZXp5M3RkMDNNcW1ic2QKM2FhWGpVWWEzdTF3NUZtOU5ZQUtVcDdjU3R3bUM2a3dtbGdHMVNpVlRWOGhIeVpIN3Aybk5TeXNla2pQc3h4NQpFOXlnV1k0N3ZIT01QWUhENGMza1JXMk5LbzZ5R3RVcWIycnBlcUZ6akR2eTlRbnEyc0xYRU9sZUNUM214RG5qClNnQytobG9LS0dzTFQySGJ3Z2x0UzB2blZGOTNlVitpUk5ESW9sZFhOU3RaMTZsVnlPcmNxa0NMUUd3OGx6dVcKdTlCdVJpZnZGMWk1dUk1anFTaUlseExxelF2WFA1NWpsWm82emJwcWN6SHJrWk5sQzBXMy9xN3REZ2ZlRnZseAo2N3M0Q0NHcWxKKzJXS3Vib2dNQ0F3RUFBYU1qTUNFd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0RRWUpLb1pJaHZjTkFRRUxCUUFEZ2dFQkFEUjdXRVlFWmszQk02VXRpY1NBZ2tSU2Q0T2UKaGVtZmowaUtkN1luTm9TTHBtanN4Q2xIV0gzRnpTQ3RoZVVyd1UrTnpabUM3RGx5cEJlWXlnTzBSbDZLaE9BOApoQlBMMXAvRU10UTY2bTNIR0hscTNROXpqaFZISUVqb01uaGY2ZSt5RHNPbHVsdWpUanVQLzA4QnhXVDN2ZmpRCnd2Y2ZCaHdKd25kblBRUWlNRTdaQS9xdERiTXF1YXVWV1U3a2JOWmdnQXM1MzdPMjVBVnBOeUhJaWlJa1p4Rm0KRGorSU5UTEk5TXl0bmVGS0poWXg2WmtMbzRaQU9RUkxYbXQyMWJ1aHpUQytwUnYxY01DM0N2UkxzZjN5QW9QSwpDeGdhMG5vS0lxUTFFTmJESUlZSjFXNU93N0xFRS9hY0NUY3RBVnl5ZEZJUXFtZFA2azdSZWNMTmt1ST0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo="
++              }
++            ],
++            "created_at": "2021-04-24 22:57:12.408 +0000 UTC",
++            "enabled_cluster_log_types": [
++              "api",
++              "audit",
++              "authenticator",
++              "controllerManager",
++              "scheduler"
++            ],
++            "encryption_config": [],
++            "endpoint": "https://3001583FC2A9D6DC944DBEFBCAAAFDA9.gr7.us-west-2.eks.amazonaws.com",
++            "id": "eks-RISE-SANDBOX",
++            "identity": [
++              {
++                "oidc": [
++                  {
++                    "issuer": "https://oidc.eks.us-west-2.amazonaws.com/id/3001583FC2A9D6DC944DBEFBCAAAFDA9"
++                  }
++                ]
++              }
++            ],
++            "kubernetes_network_config": [
++              {
++                "service_ipv4_cidr": "172.20.0.0/16"
++              }
++            ],
++            "name": "eks-RISE-SANDBOX",
++            "platform_version": "eks.5",
++            "role_arn": "arn:aws:iam::010332150590:role/EKSClusterRole",
++            "status": "ACTIVE",
++            "tags": {
++              "environment": "Development",
++              "source": "Terraform"
++            },
++            "timeouts": {
++              "create": null,
++              "delete": null,
++              "update": null
++            },
++            "version": "1.18",
++            "vpc_config": [
++              {
++                "cluster_security_group_id": "sg-004d725433e86824b",
++                "endpoint_private_access": true,
++                "endpoint_public_access": true,
++                "public_access_cidrs": [
++                  "0.0.0.0/0"
++                ],
++                "security_group_ids": [
++                  "sg-0aeb093fab936e506"
++                ],
++                "subnet_ids": [
++                  "subnet-01c83fccd1a8250cc",
++                  "subnet-063aa9eecbffda074"
++                ],
++                "vpc_id": "vpc-0a78413f77b2590b8"
++              }
++            ]
++          },
++          "sensitive_attributes": [],
++          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjkwMDAwMDAwMDAwMCwidXBkYXRlIjozNjAwMDAwMDAwMDAwfX0=",
++          "dependencies": [
++            "data.aws_iam_role.eksRole",
++            "module.securityGroup.aws_security_group.eksClusterSecurityGroup"
++          ]
++        }
++      ]
++    },
++    {
++      "module": "module.eksCluster",
++      "mode": "managed",
++      "type": "kubernetes_config_map",
++      "name": "aws_auth_configmap",
++      "provider": "module.eksCluster.provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
++      "instances": [
++        {
++          "schema_version": 0,
++          "attributes": {
++            "binary_data": null,
++            "data": null,
++            "id": "kube-system/aws-auth",
++            "metadata": [
++              {
++                "annotations": null,
++                "generate_name": "",
++                "generation": 0,
++                "labels": null,
++                "name": "aws-auth",
++                "namespace": "kube-system",
++                "resource_version": "1035",
++                "self_link": "",
++                "uid": "d3b760da-f51a-4f7d-91cc-172f17433b37"
++              }
++            ]
++          },
++          "sensitive_attributes": [],
++          "private": "bnVsbA==",
++          "dependencies": [
++            "data.aws_iam_role.eksRole",
++            "module.eksCluster.aws_eks_cluster.devCluster",
++            "module.eksCluster.data.aws_eks_cluster_auth.cluster_auth",
++            "module.securityGroup.aws_security_group.eksClusterSecurityGroup"
++          ]
++        }
++      ]
++    },
++    {
++      "module": "module.nodeGroup1",
++      "mode": "data",
++      "type": "aws_iam_role",
++      "name": "serviceLinkedRole",
++      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
++      "instances": [
++        {
++          "schema_version": 0,
++          "attributes": {
++            "arn": "arn:aws:iam::010332150590:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
++            "assume_role_policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"autoscaling.amazonaws.com\"},\"Action\":\"sts:AssumeRole\"}]}",
++            "create_date": "2020-06-17T06:48:51Z",
++            "description": "Default Service-Linked Role enables access to AWS Services and Resources used or managed by Auto Scaling",
++            "id": "AWSServiceRoleForAutoScaling",
++            "max_session_duration": 3600,
++            "name": "AWSServiceRoleForAutoScaling",
++            "path": "/aws-service-role/autoscaling.amazonaws.com/",
++            "permissions_boundary": "",
++            "tags": {},
++            "unique_id": "AROAQEZ6YDM7MY6TYERA7"
++          },
++          "sensitive_attributes": []
++        }
++      ]
++    },
++    {
++      "module": "module.nodeGroup1",
++      "mode": "managed",
++      "type": "aws_autoscaling_group",
++      "name": "eksAutoScaling",
++      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
++      "instances": [
++        {
++          "schema_version": 0,
++          "attributes": {
++            "arn": "arn:aws:autoscaling:us-west-2:010332150590:autoScalingGroup:cc419ac1-52f5-42e3-b04e-97bf45b1eb4d:autoScalingGroupName/eks-spot-instance-autoscaling",
++            "availability_zones": [
++              "us-west-2a",
++              "us-west-2b"
++            ],
++            "capacity_rebalance": false,
++            "default_cooldown": 300,
++            "desired_capacity": 2,
++            "enabled_metrics": null,
++            "force_delete": false,
++            "health_check_grace_period": 15,
++            "health_check_type": "EC2",
++            "id": "eks-spot-instance-autoscaling",
++            "initial_lifecycle_hook": [],
++            "instance_refresh": [],
++            "launch_configuration": "",
++            "launch_template": [],
++            "load_balancers": null,
++            "max_instance_lifetime": 0,
++            "max_size": 5,
++            "metrics_granularity": "1Minute",
++            "min_elb_capacity": null,
++            "min_size": 2,
++            "mixed_instances_policy": [
++              {
++                "instances_distribution": [
++                  {
++                    "on_demand_allocation_strategy": "prioritized",
++                    "on_demand_base_capacity": 0,
++                    "on_demand_percentage_above_base_capacity": 0,
++                    "spot_allocation_strategy": "capacity-optimized",
++                    "spot_instance_pools": 0,
++                    "spot_max_price": ""
++                  }
++                ],
++                "launch_template": [
++                  {
++                    "launch_template_specification": [
++                      {
++                        "launch_template_id": "lt-075ec642bde96d062",
++                        "launch_template_name": "eks-spotinstance",
++                        "version": "1"
++                      }
++                    ],
++                    "override": [
++                      {
++                        "instance_type": "t3.medium",
++                        "launch_template_specification": [],
++                        "weighted_capacity": ""
++                      }
++                    ]
++                  }
++                ]
++              }
++            ],
++            "name": "eks-spot-instance-autoscaling",
++            "name_prefix": null,
++            "placement_group": "",
++            "protect_from_scale_in": false,
++            "service_linked_role_arn": "arn:aws:iam::010332150590:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
++            "suspended_processes": null,
++            "tag": [
++              {
++                "key": "eks:cluster-name",
++                "propagate_at_launch": true,
++                "value": "eks-infra-cluster"
++              },
++              {
++                "key": "eks:nodegroup-name",
++                "propagate_at_launch": true,
++                "value": "worker-nodes"
++              },
++              {
++                "key": "k8s.io/cluster-autoscaler/eks-infra-cluster",
++                "propagate_at_launch": true,
++                "value": "owned"
++              },
++              {
++                "key": "k8s.io/cluster-autoscaler/enabled",
++                "propagate_at_launch": true,
++                "value": "true"
++              },
++              {
++                "key": "kubernetes.io/cluster/eks-infra-cluster",
++                "propagate_at_launch": true,
++                "value": "owned"
++              },
++              {
++                "key": "kubernetes.io/devCluster/eks-RISE-SANDBOX",
++                "propagate_at_launch": true,
++                "value": "owned"
++              }
++            ],
++            "tags": null,
++            "target_group_arns": null,
++            "termination_policies": [
++              "AllocationStrategy",
++              "OldestLaunchTemplate",
++              "OldestInstance"
++            ],
++            "timeouts": {
++              "delete": null
++            },
++            "vpc_zone_identifier": [
++              "subnet-01c83fccd1a8250cc",
++              "subnet-063aa9eecbffda074"
++            ],
++            "wait_for_capacity_timeout": "10m",
++            "wait_for_elb_capacity": null
++          },
++          "sensitive_attributes": [],
++          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjo2MDAwMDAwMDAwMDB9fQ==",
++          "dependencies": [
++            "data.aws_iam_role.eksRole",
++            "module.eksCluster.aws_eks_cluster.devCluster",
++            "module.nodeGroup1.aws_launch_template.nodeLaunchTemplate",
++            "module.nodeGroup1.data.aws_iam_role.serviceLinkedRole",
++            "module.securityGroup.aws_security_group.eksClusterSecurityGroup"
++          ]
++        }
++      ]
++    },
++    {
++      "module": "module.nodeGroup1",
++      "mode": "managed",
++      "type": "aws_eks_node_group",
++      "name": "nodegrp1",
++      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
++      "instances": [
++        {
++          "status": "tainted",
++          "schema_version": 0,
++          "attributes": {
++            "ami_type": null,
++            "arn": null,
++            "capacity_type": "SPOT",
++            "cluster_name": "eks-RISE-SANDBOX",
++            "disk_size": null,
++            "force_update_version": null,
++            "id": "eks-RISE-SANDBOX:nodegrp1",
++            "instance_types": null,
++            "labels": null,
++            "launch_template": [
++              {
++                "id": "lt-075ec642bde96d062",
++                "name": "",
++                "version": "1"
++              }
++            ],
++            "node_group_name": "nodegrp1",
++            "node_role_arn": "arn:aws:iam::010332150590:role/EKSWorkerNodeRole",
++            "release_version": null,
++            "remote_access": [],
++            "resources": null,
++            "scaling_config": [
++              {
++                "desired_size": 2,
++                "max_size": 3,
++                "min_size": 1
++              }
++            ],
++            "status": null,
++            "subnet_ids": [
++              "subnet-01c83fccd1a8250cc",
++              "subnet-063aa9eecbffda074"
++            ],
++            "tags": null,
++            "timeouts": null,
++            "version": null
++          },
++          "sensitive_attributes": [],
++          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjozNjAwMDAwMDAwMDAwLCJkZWxldGUiOjM2MDAwMDAwMDAwMDAsInVwZGF0ZSI6MzYwMDAwMDAwMDAwMH19",
++          "dependencies": [
++            "data.aws_iam_role.eksNodeRole",
++            "data.aws_iam_role.eksRole",
++            "module.eksCluster.aws_eks_cluster.devCluster",
++            "module.nodeGroup1.aws_launch_template.nodeLaunchTemplate",
++            "module.securityGroup.aws_security_group.eksClusterSecurityGroup"
++          ]
++        }
++      ]
++    },
++    {
++      "module": "module.nodeGroup1",
++      "mode": "managed",
++      "type": "aws_launch_template",
++      "name": "nodeLaunchTemplate",
++      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
++      "instances": [
++        {
++          "schema_version": 0,
++          "attributes": {
++            "arn": "arn:aws:ec2:us-west-2:010332150590:launch-template/lt-075ec642bde96d062",
++            "block_device_mappings": [
++              {
++                "device_name": "/dev/xvda",
++                "ebs": [
++                  {
++                    "delete_on_termination": "true",
++                    "encrypted": "",
++                    "iops": 0,
++                    "kms_key_id": "",
++                    "snapshot_id": "",
++                    "throughput": 0,
++                    "volume_size": 20,
++                    "volume_type": "gp2"
++                  }
++                ],
++                "no_device": "",
++                "virtual_name": ""
++              }
++            ],
++            "capacity_reservation_specification": [],
++            "cpu_options": [],
++            "credit_specification": [],
++            "default_version": 1,
++            "description": "",
++            "disable_api_termination": false,
++            "ebs_optimized": "",
++            "elastic_gpu_specifications": [],
++            "elastic_inference_accelerator": [],
++            "enclave_options": [],
++            "hibernation_options": [],
++            "iam_instance_profile": [],
++            "id": "lt-075ec642bde96d062",
++            "image_id": "ami-03e7c8bcb768c2ada",
++            "instance_initiated_shutdown_behavior": "",
++            "instance_market_options": [],
++            "instance_type": "t3.medium",
++            "kernel_id": "",
++            "key_name": "EKS-RISE-SANDBOX",
++            "latest_version": 1,
++            "license_specification": [],
++            "metadata_options": [
++              {
++                "http_endpoint": "enabled",
++                "http_put_response_hop_limit": 2,
++                "http_tokens": ""
++              }
++            ],
++            "monitoring": [],
++            "name": "eks-spotinstance",
++            "name_prefix": null,
++            "network_interfaces": [],
++            "placement": [],
++            "ram_disk_id": "",
++            "security_group_names": null,
++            "tag_specifications": [],
++            "tags": {
++              "environment": "Development",
++              "source": "Terraform"
++            },
++            "update_default_version": null,
++            "user_data": "IyEvYmluL2Jhc2gKc2V0IC1vIHh0cmFjZQovZXRjL2Vrcy9ib290c3RyYXAuc2ggLS1hcGlzZXJ2ZXItZW5kcG9pbnQgJ2h0dHBzOi8vMzAwMTU4M0ZDMkE5RDZEQzk0NERCRUZCQ0FBQUZEQTkuZ3I3LnVzLXdlc3QtMi5la3MuYW1hem9uYXdzLmNvbScgLS1iNjQtY2x1c3Rlci1jYSAnTFMwdExTMUNSVWRKVGlCRFJWSlVTVVpKUTBGVVJTMHRMUzB0Q2sxSlNVTjVSRU5EUVdKRFowRjNTVUpCWjBsQ1FVUkJUa0puYTNGb2EybEhPWGN3UWtGUmMwWkJSRUZXVFZKTmQwVlJXVVJXVVZGRVJYZHdjbVJYU213S1kyMDFiR1JIVm5wTlFqUllSRlJKZUUxRVVYbE9SRWw2VFVSTk1FNXNiMWhFVkUxNFRVUlJlVTFxU1hwTlJFMHdUbXh2ZDBaVVJWUk5Ra1ZIUVRGVlJRcEJlRTFMWVROV2FWcFlTblZhV0ZKc1kzcERRMEZUU1hkRVVWbEtTMjlhU1doMlkwNUJVVVZDUWxGQlJHZG5SVkJCUkVORFFWRnZRMmRuUlVKQlQwdDJDbTVvUm1aQ2VUTk9WVXgwUjFVMEt5OUZUVVpMTUZFeFZHTjVZV2szTmxsdVlrbDNablZCWlVSVFowTjVjazlpTURoMlpYcDVNM1JrTUROTmNXMWljMlFLTTJGaFdHcFZXV0V6ZFRGM05VWnRPVTVaUVV0VmNEZGpVM1IzYlVNMmEzZHRiR2RITVZOcFZsUldPR2hJZVZwSU4zQXliazVUZVhObGEycFFjM2g0TlFwRk9YbG5WMWswTjNaSVQwMVFXVWhFTkdNemExSlhNazVMYnpaNVIzUlZjV0l5Y25CbGNVWjZha1IyZVRsUmJuRXljMHhZUlU5c1pVTlVNMjE0Ukc1cUNsTm5ReXRvYkc5TFMwZHpURlF5U0dKM1oyeDBVekIyYmxaR09UTmxWaXRwVWs1RVNXOXNaRmhPVTNSYU1UWnNWbmxQY21OeGEwTk1VVWQzT0d4NmRWY0tkVGxDZFZKcFpuWkdNV2sxZFVrMWFuRlRhVWxzZUV4eGVsRjJXRkExTldwc1dtODJlbUp3Y1dONlNISnJXazVzUXpCWE15OXhOM1JFWjJabFJuWnNlQW8yTjNNMFEwTkhjV3hLS3pKWFMzVmliMmROUTBGM1JVRkJZVTFxVFVORmQwUm5XVVJXVWpCUVFWRklMMEpCVVVSQlowdHJUVUU0UjBFeFZXUkZkMFZDQ2k5M1VVWk5RVTFDUVdZNGQwUlJXVXBMYjFwSmFIWmpUa0ZSUlV4Q1VVRkVaMmRGUWtGRVVqZFhSVmxGV21zelFrMDJWWFJwWTFOQloydFNVMlEwVDJVS2FHVnRabW93YVV0a04xbHVUbTlUVEhCdGFuTjRRMnhJVjBnelJucFRRM1JvWlZWeWQxVXJUbnBhYlVNM1JHeDVjRUpsV1hsblR6QlNiRFpMYUU5Qk9BcG9RbEJNTVhBdlJVMTBVVFkyYlROSVIwaHNjVE5ST1hwcWFGWklTVVZxYjAxdWFHWTJaU3Q1UkhOUGJIVnNkV3BVYW5WUUx6QTRRbmhYVkROMlptcFJDbmQyWTJaQ2FIZEtkMjVrYmxCUlVXbE5SVGRhUVM5eGRFUmlUWEYxWVhWV1YxVTNhMkpPV21kblFYTTFNemRQTWpWQlZuQk9lVWhKYVdsSmExcDRSbTBLUkdvclNVNVVURWs1VFhsMGJtVkdTMHBvV1hnMldtdE1ielJhUVU5UlVreFliWFF5TVdKMWFIcFVReXR3VW5ZeFkwMURNME4yVWt4elpqTjVRVzlRU3dwRGVHZGhNRzV2UzBseFVURkZUbUpFU1VsWlNqRlhOVTkzTjB4RlJTOWhZME5VWTNSQlZubDVaRVpKVVhGdFpGQTJhemRTWldOTVRtdDFTVDBLTFMwdExTMUZUa1FnUTBWU1ZFbEdTVU5CVkVVdExTMHRMUW89JyAnZWtzLVJJU0UtU0FOREJPWCcK",
++            "vpc_security_group_ids": [
++              "sg-0aeb093fab936e506"
++            ]
++          },
++          "sensitive_attributes": [],
++          "private": "bnVsbA==",
++          "dependencies": [
++            "data.aws_iam_role.eksRole",
++            "module.eksCluster.aws_eks_cluster.devCluster",
++            "module.securityGroup.aws_security_group.eksClusterSecurityGroup"
++          ]
++        }
++      ]
++    },
++    {
++      "module": "module.securityGroup",
++      "mode": "managed",
++      "type": "aws_security_group",
++      "name": "eksClusterSecurityGroup",
++      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
++      "instances": [
++        {
++          "schema_version": 1,
++          "attributes": {
++            "arn": "arn:aws:ec2:us-west-2:010332150590:security-group/sg-0aeb093fab936e506",
++            "description": "Managed by Terraform",
++            "egress": [
++              {
++                "cidr_blocks": [
++                  "0.0.0.0/0"
++                ],
++                "description": "",
++                "from_port": 0,
++                "ipv6_cidr_blocks": [],
++                "prefix_list_ids": [],
++                "protocol": "-1",
++                "security_groups": [],
++                "self": false,
++                "to_port": 0
++              }
++            ],
++            "id": "sg-0aeb093fab936e506",
++            "ingress": [
++              {
++                "cidr_blocks": [
++                  "0.0.0.0/0"
++                ],
++                "description": "",
++                "from_port": 0,
++                "ipv6_cidr_blocks": [],
++                "prefix_list_ids": [],
++                "protocol": "tcp",
++                "security_groups": [],
++                "self": false,
++                "to_port": 65535
++              }
++            ],
++            "name": "clusterSecurityGroup",
++            "name_prefix": "",
++            "owner_id": "010332150590",
++            "revoke_rules_on_delete": false,
++            "tags": {
++              "environment": "Development",
++              "source": "Terraform"
++            },
++            "timeouts": null,
++            "vpc_id": "vpc-0a78413f77b2590b8"
++          },
++          "sensitive_attributes": [],
++          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0="
++        }
++      ]
++    }
++  ]
++}
+Index: terraform.tfstate
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/terraform.tfstate b/terraform.tfstate
+new file mode 100644
+--- /dev/null	(date 1619310547279)
++++ b/terraform.tfstate	(date 1619310547279)
+@@ -0,0 +1,8 @@
++{
++  "version": 4,
++  "terraform_version": "0.15.0",
++  "serial": 18,
++  "lineage": "cd182aa2-5f86-faa4-6aae-68a3674e65a6",
++  "outputs": {},
++  "resources": []
++}
+Index: providers.tf
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/providers.tf b/providers.tf
+--- a/providers.tf	(revision e6fe5c81b1b3ddfee25c824b7e0360a0ec641ecf)
++++ b/providers.tf	(date 1619303994123)
+@@ -1,0 +1,5 @@
++provider "aws" {
++  version = "~> 3.31.0"
++  profile = "default"
++  region  = "us-west-2"
++}
+\ No newline at end of file
+Index: dev.tfvars
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>environments          = \"devolopment\"\ns3BucketName          = \"s3usw2appgredpsidevtfstate\"\neksClusterName        = \"eks-RISE-SANDBOX\"\nclusterRoleName       = \"EKSClusterRole\"\nclusterNodeRoleName   = \"EKSWorkerNodeRole\"\nendpointPrivateAccess = true\nendpointPublicAccess  = true\nsubnetIds = [\"subnet-01c83fccd1a8250cc\",\"subnet-063aa9eecbffda074\"]\ntags = {\n  environment = \"Development\"\n  source      = \"Terraform\"\n}\nnodeGroupName        = \"nodegrp1\"\nnodeDesiredSize      = 2\nnodeMaxSize          = 3\nnodeMinSize          = 1\nvpcId                = \"vpc-0a78413f77b2590b8\"\nsecurityGroupName    = \"clusterSecurityGroup\"\ncapacityType         = \"SPOT\"\nautoScalingGroupName = \"eks-spot-instance-autoscaling\"\namiId                = \"ami-03e7c8bcb768c2ada\"\ninstanceType         = \"t3.medium\"\ninstanceKey          = \"EKS-RISE-SANDBOX\"\nlaunchTemplateName   = \"eks-spotinstance\"\neksLogTypes          = [\"api\", \"audit\", \"authenticator\", \"controllerManager\", \"scheduler\"]
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/dev.tfvars b/dev.tfvars
+--- a/dev.tfvars	(revision e6fe5c81b1b3ddfee25c824b7e0360a0ec641ecf)
++++ b/dev.tfvars	(date 1619669351966)
+@@ -1,24 +1,24 @@
+ environments          = "devolopment"
+ s3BucketName          = "s3usw2appgredpsidevtfstate"
+ eksClusterName        = "eks-RISE-SANDBOX"
+-clusterRoleName       = "EKSClusterRole"
++clusterRoleName       = "EKSClusterAuto"
+ clusterNodeRoleName   = "EKSWorkerNodeRole"
+-endpointPrivateAccess = true
+-endpointPublicAccess  = true
+-subnetIds = ["subnet-01c83fccd1a8250cc","subnet-063aa9eecbffda074"]
++endpointPrivateAccess = "true"
++endpointPublicAccess  = "true"
++subnetIds = ["subnet-0f1379c2b55c00806","subnet-0a967c13de5449c04","subnet-079f767877cbe68c4"]
+ tags = {
+   environment = "Development"
+   source      = "Terraform"
+ }
+ nodeGroupName        = "nodegrp1"
+-nodeDesiredSize      = 2
++nodeDesiredSize      = 1
+ nodeMaxSize          = 3
+ nodeMinSize          = 1
+-vpcId                = "vpc-0a78413f77b2590b8"
++vpcId                = "vpc-0ebec54e5b8c253eb"
+ securityGroupName    = "clusterSecurityGroup"
+ capacityType         = "SPOT"
+ autoScalingGroupName = "eks-spot-instance-autoscaling"
+-amiId                = "ami-03e7c8bcb768c2ada"
++amiId                = "ami-0f7de5cb4a0ef5195"
+ instanceType         = "t3.medium"
+ instanceKey          = "EKS-RISE-SANDBOX"
+ launchTemplateName   = "eks-spotinstance"
+Index: main.tf
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>data \"aws_iam_role\" \"eksRole\" {\n  name = var.clusterRoleName\n}\ndata \"aws_iam_role\" \"eksNodeRole\" {\n  name = var.clusterNodeRoleName\n}\n\nmodule \"securityGroup\" {\n  source            = \"./modules/securityGroups\"\n  securityGroupName = var.securityGroupName\n  vpcId             = var.vpcId\n  tags              = var.tags\n}\n\nmodule \"eksCluster\" {\n  source                 = \"./modules/eksCluster\"\n  eksLogTypes            = var.eksLogTypes\n  eksClusterName         = var.eksClusterName\n  eksRoleArn             = data.aws_iam_role.eksRole.arn\n  endpointPrivateAccess  = var.endpointPrivateAccess\n  endpointPublicAccess   = var.endpointPublicAccess\n  securityGroupId        = module.securityGroup.securityGroupId\n  subnetIds              = var.subnetIds\n  tags                   = var.tags\n  vpcId                  = var.vpcId\n}\n\nmodule \"nodeGroup1\" {\n  source                = \"./modules/nodeGroups\"\n  eksClusterName        = var.eksClusterName\n  nodeGroupName         = var.nodeGroupName\n  nodeRoleArn           = data.aws_iam_role.eksNodeRole.arn\n  subnetIds             = var.subnetIds\n  nodeDesiredSize       = var.nodeDesiredSize\n  nodeMaxSize           = var.nodeMaxSize\n  nodeMinSize           = var.nodeMinSize\n  capacityType          = var.capacityType\n  certificate_authority = module.eksCluster.eksCertificateAuthority\n  endpoint              = module.eksCluster.eksendpoint\n  autoScalingGroupName  = var.autoScalingGroupName\n  amiId                 = var.amiId\n  instanceType          = var.instanceType\n  instanceKey           = var.instanceKey\n  launchTemplateName    = var.launchTemplateName\n  tags                  = var.tags\n  securityGroupId        = module.securityGroup.securityGroupId\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.tf b/main.tf
+--- a/main.tf	(revision e6fe5c81b1b3ddfee25c824b7e0360a0ec641ecf)
++++ b/main.tf	(date 1619669371772)
+@@ -43,6 +43,5 @@
+   instanceKey           = var.instanceKey
+   launchTemplateName    = var.launchTemplateName
+   tags                  = var.tags
+-  securityGroupId        = module.securityGroup.securityGroupId
+-}
+-
++  securityGroupId       = module.securityGroup.securityGroupId
++}
+\ No newline at end of file
+Index: modules/eksCluster/outputs.tf
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/modules/eksCluster/outputs.tf b/modules/eksCluster/outputs.tf
+--- a/modules/eksCluster/outputs.tf	(revision e6fe5c81b1b3ddfee25c824b7e0360a0ec641ecf)
++++ b/modules/eksCluster/outputs.tf	(date 1619669401210)
+@@ -1,0 +1,19 @@
++output "eksClusterName" {
++  value = aws_eks_cluster.devCluster.name
++}
++
++output "eksClusterStatus" {
++  value = aws_eks_cluster.devCluster.status
++}
++
++output "eksClusterArn" {
++  value = aws_eks_cluster.devCluster.arn
++}
++
++output "eksCertificateAuthority" {
++  value = aws_eks_cluster.devCluster.certificate_authority[0].data
++}
++
++output "eksendpoint" {
++  value = aws_eks_cluster.devCluster.endpoint
++}
+Index: modules/eksCluster/main.tf
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>resource \"aws_eks_cluster\" \"devCluster\" {\n  enabled_cluster_log_types = var.eksLogTypes\n  name                      = var.eksClusterName\n  role_arn                  = var.eksRoleArn\n  tags                      = var.tags\n  version                   = \"1.18\"\n\n  timeouts {}\n\n  vpc_config {\n    endpoint_private_access = var.endpointPrivateAccess\n    endpoint_public_access  = var.endpointPublicAccess\n    public_access_cidrs = [\n      \"0.0.0.0/0\",\n    ]\n    security_group_ids = [var.securityGroupId]\n    subnet_ids         = var.subnetIds\n  }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/modules/eksCluster/main.tf b/modules/eksCluster/main.tf
+--- a/modules/eksCluster/main.tf	(revision e6fe5c81b1b3ddfee25c824b7e0360a0ec641ecf)
++++ b/modules/eksCluster/main.tf	(date 1619669397553)
+@@ -3,7 +3,7 @@
+   name                      = var.eksClusterName
+   role_arn                  = var.eksRoleArn
+   tags                      = var.tags
+-  version                   = "1.18"
++  version                   = "1.19"
+ 
+   timeouts {}
+ 
+@@ -16,5 +16,4 @@
+     security_group_ids = [var.securityGroupId]
+     subnet_ids         = var.subnetIds
+   }
+-}
+-
++}
+\ No newline at end of file
+Index: modules/nodeGroups/main.tf
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>data \"aws_iam_role\" \"serviceLinkedRole\" {\n  name = \"AWSServiceRoleForAutoScaling\"\n}\n\n/*data \"aws_iam_role\" \"serviceLinkedRole\" {\n  name = \"AWSServiceRoleForAmazonEKSNodegroup\"\n}\nresource \"aws_iam_role\" \"example\" {\n  name = \"eks-node-group-example\"\n\n  assume_role_policy = jsonencode({\n    Statement = [{\n      Action = \"sts:AssumeRole\"\n      Effect = \"Allow\"\n      Principal = {\n        Service = \"ec2.amazonaws.com\"\n      }\n    }]\n    Version = \"2012-10-17\"\n  })\n}\n\nresource \"aws_iam_role_policy_attachment\" \"example-AmazonEKSWorkerNodePolicy\" {\n  policy_arn = \"arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy\"\n  role       = aws_iam_role.example.name\n}\n\nresource \"aws_iam_role_policy_attachment\" \"example-AmazonEKS_CNI_Policy\" {\n  policy_arn = \"arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy\"\n  role       = aws_iam_role.example.name\n}\n\nresource \"aws_iam_role_policy_attachment\" \"example-AmazonEC2ContainerRegistryReadOnly\" {\n  policy_arn = \"arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly\"\n  role       = aws_iam_role.example.name\n}*/\nresource \"aws_eks_node_group\" \"nodegrp1\" {\n  cluster_name    = var.eksClusterName\n  node_group_name = var.nodeGroupName\n  node_role_arn   = var.nodeRoleArn\n  subnet_ids      = var.subnetIds\n  lifecycle {\n    ignore_changes = [\n      scaling_config.0.desired_size,\n    ]\n  }\n  scaling_config {\n    desired_size = var.nodeDesiredSize\n    max_size     = var.nodeMaxSize\n    min_size     = var.nodeMinSize\n  }\n  capacity_type = var.capacityType\n  launch_template {\n    id      = aws_launch_template.nodeLaunchTemplate.id\n    version = aws_launch_template.nodeLaunchTemplate.latest_version\n  }\n    /*(depends_on = [\n    aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy,\n    aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy,\n    aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly,\n  ]*/\n}\n\nlocals {\n  demo-node-userdata = <<USERDATA\n#!/bin/bash\nset -o xtrace\n/etc/eks/bootstrap.sh --apiserver-endpoint '${var.endpoint}' --b64-cluster-ca '${var.certificate_authority}' '${var.eksClusterName}'\nUSERDATA\n\n}\n# aws_launch_template.nodeLaunchTemplate:\nresource \"aws_launch_template\" \"nodeLaunchTemplate\" {\n  default_version         = 1\n  disable_api_termination = false\n  image_id                = var.amiId\n  instance_type           = var.instanceType\n  key_name                = var.instanceKey\n  name                    = var.launchTemplateName\n  tags                    = var.tags\n  user_data               = base64encode(local.demo-node-userdata)\n  vpc_security_group_ids  = [var.securityGroupId]\n\n  block_device_mappings {\n    device_name = \"/dev/xvda\"\n\n    ebs {\n      delete_on_termination = \"true\"\n      iops                  = 0\n      volume_size           = 20\n      volume_type           = \"gp2\"\n    }\n  }\n\n  metadata_options {\n    http_put_response_hop_limit = 2\n    http_endpoint               = \"enabled\"\n  }\n}\n\n# aws_autoscaling_group.web:\nresource \"aws_autoscaling_group\" \"eksAutoScaling\" {\n  default_cooldown          = 300\n  desired_capacity          = 2\n  enabled_metrics           = []\n  health_check_grace_period = 15\n  health_check_type         = \"EC2\"\n  load_balancers            = []\n  max_instance_lifetime     = 0\n  max_size                  = 5\n  metrics_granularity       = \"1Minute\"\n  min_size                  = 2\n  name                      = var.autoScalingGroupName\n  protect_from_scale_in     = false\n  service_linked_role_arn   = data.aws_iam_role.serviceLinkedRole.arn\n  suspended_processes       = []\n  target_group_arns         = []\n  vpc_zone_identifier       = [\"subnet-01c83fccd1a8250cc\",\"subnet-063aa9eecbffda074\"]\n  termination_policies = [\n    \"AllocationStrategy\",\n    \"OldestLaunchTemplate\",\n    \"OldestInstance\",\n  ]\n\n  mixed_instances_policy {\n    instances_distribution {\n      on_demand_allocation_strategy            = \"prioritized\"\n      on_demand_base_capacity                  = 0\n      on_demand_percentage_above_base_capacity = 0\n      spot_allocation_strategy                 = \"capacity-optimized\"\n      spot_instance_pools                      = 0\n    }\n\n    launch_template {\n      launch_template_specification {\n        launch_template_id   = aws_launch_template.nodeLaunchTemplate.id\n        launch_template_name = aws_launch_template.nodeLaunchTemplate.name\n        version              = \"1\"\n      }\n\n      override {\n        instance_type = \"t3.medium\"\n      }\n    }\n  }\n  tag {\n    key                 = \"eks:cluster-name\"\n    propagate_at_launch = true\n    value               = \"eks-infra-cluster\"\n  }\n  tag {\n    key                 = \"eks:nodegroup-name\"\n    propagate_at_launch = true\n    value               = \"worker-nodes\"\n  }\n  tag {\n    key                 = \"k8s.io/cluster-autoscaler/eks-infra-cluster\"\n    propagate_at_launch = true\n    value               = \"owned\"\n  }\n  tag {\n    key                 = \"k8s.io/cluster-autoscaler/enabled\"\n    propagate_at_launch = true\n    value               = \"true\"\n  }\n  tag {\n    key                 = \"kubernetes.io/cluster/eks-infra-cluster\"\n    propagate_at_launch = true\n    value               = \"owned\"\n  }\n  tag {\n    key = \"kubernetes.io/devCluster/${var.eksClusterName}\"\n    value = \"owned\"\n    propagate_at_launch = true\n    }\n\n  timeouts {}\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/modules/nodeGroups/main.tf b/modules/nodeGroups/main.tf
+--- a/modules/nodeGroups/main.tf	(revision e6fe5c81b1b3ddfee25c824b7e0360a0ec641ecf)
++++ b/modules/nodeGroups/main.tf	(date 1619669244201)
+@@ -1,10 +1,10 @@
++/* data "aws_iam_role" "serviceLinkedRole" {
++  name = "EKSClusterAuto"
++} */
++
+ data "aws_iam_role" "serviceLinkedRole" {
+   name = "AWSServiceRoleForAutoScaling"
+ }
+-
+-/*data "aws_iam_role" "serviceLinkedRole" {
+-  name = "AWSServiceRoleForAmazonEKSNodegroup"
+-}
+ resource "aws_iam_role" "example" {
+   name = "eks-node-group-example"
+ 
+@@ -33,13 +33,18 @@
+ resource "aws_iam_role_policy_attachment" "example-AmazonEC2ContainerRegistryReadOnly" {
+   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+   role       = aws_iam_role.example.name
+-}*/
++}
++resource "aws_iam_role_policy_attachment" "AdminAccess" {
++  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
++  role       = aws_iam_role.example.name
++}
+ resource "aws_eks_node_group" "nodegrp1" {
+   cluster_name    = var.eksClusterName
+   node_group_name = var.nodeGroupName
+-  node_role_arn   = var.nodeRoleArn
++  node_role_arn   = aws_iam_role.example.arn
+   subnet_ids      = var.subnetIds
+-  lifecycle {
++
++   lifecycle {
+     ignore_changes = [
+       scaling_config.0.desired_size,
+     ]
+@@ -54,45 +59,45 @@
+     id      = aws_launch_template.nodeLaunchTemplate.id
+     version = aws_launch_template.nodeLaunchTemplate.latest_version
+   }
+-    /*(depends_on = [
++  depends_on = [
+     aws_iam_role_policy_attachment.example-AmazonEKSWorkerNodePolicy,
+     aws_iam_role_policy_attachment.example-AmazonEKS_CNI_Policy,
+     aws_iam_role_policy_attachment.example-AmazonEC2ContainerRegistryReadOnly,
+-  ]*/
++  ]
+ }
+ 
+ locals {
+   demo-node-userdata = <<USERDATA
+ #!/bin/bash
+ set -o xtrace
+-/etc/eks/bootstrap.sh --apiserver-endpoint '${var.endpoint}' --b64-cluster-ca '${var.certificate_authority}' '${var.eksClusterName}'
++sudo mkdir -p /etc/eks/
++sudo cd /etc/eks/
++sudo wget https://github.com/awslabs/amazon-eks-ami/blob/master/files/bootstrap.sh
++/etc/eks/bootstrap.sh --b64-cluster-ca '${var.certificate_authority}' --apiserver-endpoint '${var.endpoint}' '${var.eksClusterName}'
+ USERDATA
+-
+ }
+ # aws_launch_template.nodeLaunchTemplate:
+ resource "aws_launch_template" "nodeLaunchTemplate" {
+   default_version         = 1
+   disable_api_termination = false
+   image_id                = var.amiId
+-  instance_type           = var.instanceType
++  tags                    = var.tags
+   key_name                = var.instanceKey
+   name                    = var.launchTemplateName
+-  tags                    = var.tags
+   user_data               = base64encode(local.demo-node-userdata)
+   vpc_security_group_ids  = [var.securityGroupId]
+ 
+   block_device_mappings {
+-    device_name = "/dev/xvda"
++    device_name = "/dev/sda1"
+ 
+     ebs {
+       delete_on_termination = "true"
+       iops                  = 0
+-      volume_size           = 20
++      volume_size           = 40
+       volume_type           = "gp2"
+     }
+   }
+-
+-  metadata_options {
++    metadata_options {
+     http_put_response_hop_limit = 2
+     http_endpoint               = "enabled"
+   }
+@@ -101,21 +106,21 @@
+ # aws_autoscaling_group.web:
+ resource "aws_autoscaling_group" "eksAutoScaling" {
+   default_cooldown          = 300
+-  desired_capacity          = 2
++  desired_capacity          = 1
+   enabled_metrics           = []
+   health_check_grace_period = 15
+   health_check_type         = "EC2"
+   load_balancers            = []
+   max_instance_lifetime     = 0
+-  max_size                  = 5
++  max_size                  = 3
+   metrics_granularity       = "1Minute"
+-  min_size                  = 2
++  min_size                  = 1
+   name                      = var.autoScalingGroupName
+   protect_from_scale_in     = false
+   service_linked_role_arn   = data.aws_iam_role.serviceLinkedRole.arn
+   suspended_processes       = []
+   target_group_arns         = []
+-  vpc_zone_identifier       = ["subnet-01c83fccd1a8250cc","subnet-063aa9eecbffda074"]
++  vpc_zone_identifier       = ["subnet-0f1379c2b55c00806","subnet-0a967c13de5449c04","subnet-079f767877cbe68c4"]
+   termination_policies = [
+     "AllocationStrategy",
+     "OldestLaunchTemplate",
+@@ -137,7 +142,6 @@
+         launch_template_name = aws_launch_template.nodeLaunchTemplate.name
+         version              = "1"
+       }
+-
+       override {
+         instance_type = "t3.medium"
+       }
+@@ -169,7 +173,7 @@
+     value               = "owned"
+   }
+   tag {
+-    key = "kubernetes.io/devCluster/${var.eksClusterName}"
++    key = "kubernetes.io/Cluster/${var.eksClusterName}-${terraform.workspace}"
+     value = "owned"
+     propagate_at_launch = true
+     }
+Index: modules/securityGroups/main.tf
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>resource \"aws_security_group\" \"eksClusterSecurityGroup\" {\n  name   = var.securityGroupName\n  vpc_id = var.vpcId\n\n  ingress {\n    from_port   = 0\n    to_port     = 65535\n    protocol    = \"tcp\"\n    cidr_blocks = [\"0.0.0.0/0\"]\n  }\n  egress {\n    from_port   = 0\n    to_port     = 0\n    protocol    = \"-1\"\n    cidr_blocks = [\"0.0.0.0/0\"]\n  }\n  tags = var.tags\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/modules/securityGroups/main.tf b/modules/securityGroups/main.tf
+--- a/modules/securityGroups/main.tf	(revision e6fe5c81b1b3ddfee25c824b7e0360a0ec641ecf)
++++ b/modules/securityGroups/main.tf	(date 1619669326904)
+@@ -14,5 +14,6 @@
+     protocol    = "-1"
+     cidr_blocks = ["0.0.0.0/0"]
+   }
+-  tags = var.tags
++tags = var.tags
++
+ }
+Index: .idea/personalrepo.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/personalrepo.iml b/.idea/personalrepo.iml
+new file mode 100644
+--- /dev/null	(date 1619671376223)
++++ b/.idea/personalrepo.iml	(date 1619671376223)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1619671376229)
++++ b/.idea/modules.xml	(date 1619671376229)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/personalrepo.iml" filepath="$PROJECT_DIR$/.idea/personalrepo.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1619671376234)
++++ b/.idea/misc.xml	(date 1619671376234)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1619671376238)
++++ b/.idea/vcs.xml	(date 1619671376238)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file

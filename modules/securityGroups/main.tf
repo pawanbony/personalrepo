@@ -14,5 +14,6 @@ resource "aws_security_group" "eksClusterSecurityGroup" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  tags = var.tags
+tags = var.tags
+
 }
